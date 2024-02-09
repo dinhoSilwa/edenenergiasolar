@@ -14,7 +14,7 @@ import { useEffect , useRef , useLayoutEffect } from 'react'
 
 const HeroImagems : React.FC = () => {
 
- const containnerEffect = useRef(null)
+ const containnerEffect = useRef();
 
  useLayoutEffect(() =>{
      gsap.registerPlugin(ScrollTrigger);
