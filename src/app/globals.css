@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btnCallToaction{
+ 
+  background: linear-gradient(90deg, #FFD503 0%, #FFEC8E 100%);
+
+}
