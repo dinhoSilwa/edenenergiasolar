@@ -1,4 +1,3 @@
-
 "use client"
 import React, { useRef, useLayoutEffect } from 'react';
 import Image from 'next/image';
@@ -13,11 +12,11 @@ import painelRight from './painelright.png';
 import painelMiddle from './Painelmiddle.png';
 
 const HeroImagems: React.FC = () => {
-  const containnerEffect = useRef<gsap.core.Timeline | null>(null);
+  const containnerEffect = useRef<gsap.core.Timeline | undefined>();
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    if (containnerEffect.current) {
+    if (!containnerEffect.current) {
       containnerEffect.current = gsap.timeline({
         scrollTrigger: {
           trigger: ".containerEffectScrorll",
@@ -36,7 +35,7 @@ const HeroImagems: React.FC = () => {
 
   return (
     <>
-      <div className='flex items-center justify-center relative mt-10 border containerEffectScrorll' ref={containnerEffect}>
+      <div className='flex items-center justify-center relative mt-10 border containerEffectScrorll'>
 
         <Image src={helmetLeft} alt="banner man" style={{ maxWidth: '200px' }} className="absolute left-[20px] imgLeft" />
         <Image src={painelLeft} alt="banner man" style={{ maxWidth: '200px' }} className="painelLeft absolute z-50 top-96 left-8" />
