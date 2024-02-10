@@ -8,3 +8,7 @@
   background: linear-gradient(90deg, #FFD503 0%, #FFEC8E 100%);
 
 }
+
+.containerEffectScrorll{
+  overflow: hidden;
+}

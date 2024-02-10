@@ -3,52 +3,44 @@ import React, { useRef, useLayoutEffect } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import logoImg from '@/components/herocomponents/hero.imgs.collection/Logo.png'
 
-import bannerMan from './heromangroup.png';
-import helmetLeft from './Helmetleft.png';
-import helmetRight from './Helmetright.png';
-import painelLeft from './painelleft.png';
-import painelRight from './painelright.png';
-import painelMiddle from './Painelmiddle.png';
+
+import bannerMan from './heropng.png';
+
 
 const HeroImagems: React.FC = () => {
   const containnerEffect = useRef<gsap.core.Timeline | undefined>();
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (!containnerEffect.current) {
-      containnerEffect.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".containerEffectScrorll",
-          scrub: true,
-          // markers : true,
-          start: "top 600px",
-          end: "bottom 800px"
-        }
-      })
-      .fromTo(".bannerMan", { opacity: 0.8 }, { opacity: 1 })
-      .fromTo(".imgLeft", { opacity: 0, bottom: "300" }, { opacity: 1, bottom: "360px" })
-      .fromTo(".painelmiddle", { right: "-200px", opacity: 0 }, { right: "-40px", opacity: 1 })
-      .fromTo(".helmetRight", { top: "200px", opacity: 0 }, { top: "300px", opacity: 1 });
-    }
-  }, []);
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   if (!containnerEffect.current) {
+  //     containnerEffect.current = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: ".containerEffectScrorll",
+  //         scrub: true,
+  //         markers : true,
+  //         start: "top 100px",
+  //         end: "bottom 800px"
+  //       }
+  //     })
+  //     .fromTo(".bannerMan", { opacity: 0.8 }, { opacity: 1 })
+  //     .fromTo(".helmetLeft" , {top : "100px", left : "10px"} , { top : "150px", left : "10px"})
+  //     .fromTo(".painelLeft", {top : "250px", opacity : 0.8}, {top : "260px", opacity : 1})
+  //     .fromTo(".painelmiddle", {left : "300px"} , { left : "100px"})
+  //     .fromTo(".painelRight", {left : 0} , { left : "200px"})
+  //   }
+  // }, []);
 
   return (
     <>
-      <div className='flex items-center justify-center relative mt-10 border containerEffectScrorll'>
+      <Image src={logoImg} alt="logo hero main" style={{width : '100px '}} className=" mt-8 ml-8" />
 
-        <Image src={helmetLeft} alt="banner man" style={{ maxWidth: '200px' }} className="absolute left-[20px] imgLeft" />
-        <Image src={painelLeft} alt="banner man" style={{ maxWidth: '200px' }} className="painelLeft absolute z-50 top-96 left-8" />
-        <Image src={painelMiddle} alt="banner painel middle" style={{ maxWidth: '600px' }} className="painelmiddle absolute" />
-        <Image src={bannerMan} alt="banner man" style={{ maxWidth: '500px' }} className="bannerMan z-40 ml-auto mr-auto" />
-        <Image src={painelRight} alt="banner painel direito" style={{ maxWidth: '130px' }} className="absolute z-40 right-[50px]" />
-        <Image src={helmetRight} alt="banner man" style={{ maxWidth: '400px' }} className="helmetRight absolute left-80 z-50  " />
+      <div className=' w-full flex items-center justify-center relative mt-10 border containerEffectScrorll'>
+
+        <Image src={bannerMan} alt="banner man" style={{ maxWidth: '450px' }} className="" />
 
       </div>
-
-      <section className='h-[975px]'>
-        ksjda
-      </section>
     </>
   );
 }
